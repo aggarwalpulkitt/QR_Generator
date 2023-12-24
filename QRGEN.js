@@ -14,3 +14,31 @@ function generateQRCode() {
         alert('Please enter text to generate QR code');
     }
 }
+
+function downloadQRCode() {
+    var qrCodeDiv = document.getElementById('qrcode');
+    var qrCodeImg = qrCodeDiv.querySelector('img');
+    var downloadLink = document.createElement('a');
+    downloadLink.href = qrCodeImg.src;
+    downloadLink.download = 'qrcode.png';
+    downloadLink.click();
+}
+
+function shareQRCode() {
+    var qrCodeDiv = document.getElementById('qrcode');
+    var qrCodeImg = qrCodeDiv.querySelector('img');
+    var shareText = 'Check out this QR code I generated!';
+    if (navigator.share) {
+        navigator.share({
+            title: 'QR Code',
+            text: shareText,
+            url: qrCodeImg.src
+        }).then(() => {
+            console.log('Successfully shared QR code');
+        }).catch((error) => {
+            console.error('Error sharing QR code:', error);
+        });
+    } else {
+        alert('Sharing is not supported in your browser');
+    }
+}
