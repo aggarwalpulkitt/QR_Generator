@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code Generator</title>
-    <link rel="stylesheet" href="QRGEN.CSS">
+    <title>Fancy QR Code Generator</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -14,11 +14,15 @@
             <button onclick="generateQRCode()">Generate</button>
         </div>
         <div id="qrcode"></div>
+        <div class="buttons">
+            <button onclick="downloadQRCode()">Download QR Code</button>
+            <button onclick="shareQRCode()">Share QR Code</button>
+        </div>
         <footer>
-            <p>Created by Pulkit Aggarwal</p>
+            <p>Created with love <span>&#10084;</span> by Pulkit Aggarwal</p>
         </footer>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/qrcode-generator/qrcode.min.js"></script>
-    <script src="QRGEN.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
